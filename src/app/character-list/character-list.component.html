@@ -1,0 +1,36 @@
+<div class="container ">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Tipo</th>
+                <th>Especie</th>
+                <th>Genero</th>
+                <th>Origen</th>
+                <th>localización</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (character of characters; track character.name) {
+                <tr>
+                    <td><img width="90" class="img-thumbnail" [src]="character.image" alt=""></td>
+                    <td>{{character.name}}</td>
+                    @if (character.type) {
+                        <td>{{character.type}}</td>
+                    } @else {
+                        <td>unknown</td>
+                    }
+                    
+                    <td>{{character.species}}</td>
+                    <td>{{character.gender}}</td>
+                    <td>{{character.origin.name}}</td>
+                    <td>{{character.location.name}}</td>
+                    <td><button class="btn btn-outline-success" (click)="addFavorite(character)">Favorito</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
